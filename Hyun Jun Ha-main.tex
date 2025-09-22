@@ -1,0 +1,318 @@
+\documentclass[preprint,12pt,authoryear]{elsarticle}
+
+\input{instr-preamble}
+\input{instr-mathsymbols}
+
+\journal{ME517---Mechanics of Soft Materials}
+
+\setlength{\marginparwidth}{2cm}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{MECHENG 517---Mechanics of Soft Materials}
+
+\author{Hyun Jun Ha} 
+
+\end{frontmatter}
+
+
+\section*{Project I: Topic ID and Overview}
+
+I first came across the field of soft tissue mechanics when I received an email about a summer research opportunity in Prof. Arruda's lab. At that time, most of my experiences revolved around my interest in the automotive industry, so I didn't meet many of the listed qualifications. But, because I had yet to find something to do for the summer, I decided to apply anyway. It was the first research opportunity I ever got accepted to, and I was so grateful that I decided to say yes, even though I wasn't very interested in the field. Turns out, it was one of the best decisions I ever made. I enjoyed the balance of both experimental and theoretical work, as well as the need to draw on knowledge from many different areas like mechanics, materials science, and biology. I quickly learned that there are countless unrealized applications in medicine and not many experts in the field. I was motivated by the fact that my work could help someone feel less pain one day, and that if I don't do it, there aren't enough people in the world who would or could.
+
+From my experience, the field of soft tissue mechanics can be divided into three main areas: measurement, modeling, and application. Measurement refers to studying the structure and properties of soft tissues in real life through methods such as magnetic resonance imaging (MRI) or digital image correlation (DIC). Modeling refers to simulating and predicting the behavior of soft tissues, which could involve calculating constitutive parameters or developing finite element models. Lastly, application refers to using those measurements and models to improve patient outcomes in healthcare. Most soft tissues like tendons are composite materials, made up of collagen fibers embedded in an extracellular matrix. They can undergo very large strains and exhibit highly non-linear behaviors that can be described using both visco- and hyperelastic models, which are the main topics of this course. They also accumulate damage and can fail over time, something we'll learn how to model later in the semester. Thus, this course will allow me to explore different ways of modeling the mechanical behavior of soft tissues, as well as some experimental techniques for doing so. I plan to use this knowledge to evaluate and improve existing surgical methods for repairing damaged tissues.
+
+As the global population continues to age, soft tissue injuries such as tendon tears are becoming more common, but many surgical repairs have high failure rates. Most clinical studies on this issue are based on observations rather than mechanistic explanations, and biomechanics studies tend to focus more on forces and stresses instead of deformations and strains. With a better understanding of soft tissue mechanics, physicians could make more informed decisions on when and how to surgically repair injured tissues. For example, they could run an MRI test on a patient's rotator cuff and input the results into a program to predict the chances of a full tear. The repair technique could be optimized to the unique structure and properties of the patient's tissue, as well as the severity of the injury, which could significantly improve surgical outcomes. Thus, advancing the knowledge of soft tissue mechanics could help restore the independence of older adults, improve their quality of life, and reduce the economic costs associated with tissue injuries.
+
+\newpage
+
+
+\section*{Examples I. Mathematical Preliminaries}
+
+\subsection*{1--1. \textbf{Convolutional integrals} [4 pts].}
+
+(a) 
+
+\begin{equation*}
+    \sigma_1(\tau) = \sigma_0 H(\tau)
+\end{equation*}
+
+\begin{equation*}
+    \frac{d\sigma_1(\tau)}{d\tau} = \sigma_0\delta(\tau)
+\end{equation*}
+
+\begin{equation}
+    \varepsilon_1(t) = \sigma_0 \int_0^t J(t-\tau) \delta(\tau) d\tau,
+\end{equation}
+
+where $\delta(\tau)$ is the signal and $J(t-\tau)$ is the filter function.
+
+\bigskip
+
+\begin{equation*}
+    \mathcal{L}\{\delta(t)\} =1
+\end{equation*}
+
+\begin{equation*}
+     \mathcal{L}\{J(t)\} = \mathcal{L}\{J_\infty\} + \mathcal{L}\{(J_0-J_\infty)e^{-t/\tau_c}\}
+\end{equation*}
+
+\begin{equation*}
+    \mathcal{L}\{J(t)\} = \mathcal{L}\{J_\infty\} + (J_0-J_\infty)\mathcal{L}\{e^{-(1/\tau_c)t}\}
+\end{equation*}
+
+\begin{equation*}
+    \mathcal{L}\{J(t)\} = \frac{J_\infty}{s} + \frac{J_0-J_\infty}{s+1/\tau_c}
+\end{equation*}
+
+\bigskip
+
+Since (1) is a convolution integral,
+
+\begin{equation*}
+    \mathcal{L}\{\varepsilon_1(t)\} = \sigma_0*\mathcal{L}\{\delta(t)\}*\mathcal{L}\{J(t)\}
+\end{equation*}
+
+\begin{equation*}
+    \mathcal{L}\{\varepsilon_1(t)\} = \sigma_0*1*(\frac{J_\infty}{s} + \frac{J_0-J_\infty}{s+1/\tau_c})
+\end{equation*}
+
+\begin{equation*}
+    \mathcal{L}\{\varepsilon_1(t)\} = \frac{J_\infty\sigma_0}{s} + \frac{(J_0-J_\infty)\tau_c\sigma_0}{\tau_cs+1}
+\end{equation*}
+
+\newpage
+
+
+(b)
+
+\begin{equation*}
+    \sigma_2(\tau) = \sigma_0 sin(\omega \tau)
+\end{equation*}
+
+\begin{equation*}
+    \frac{d\sigma_2(\tau)}{d\tau} = \sigma_0 \omega cos(\omega \tau)
+\end{equation*}
+
+\begin{equation}
+    \varepsilon_2(t) = \sigma_0 \omega \int_0^t J(t-\tau) cos(\omega \tau) d\tau,
+\end{equation}
+
+where $cos(\omega \tau)$ is the signal and $J(t-\tau)$ is the filter function.
+
+\bigskip
+
+\begin{equation*}
+    \mathcal{L}\{\cos(\omega t)\} = \frac{s}{s^2+\omega^2}
+\end{equation*}
+
+\begin{equation*}
+    \mathcal{L}\{J(t)\} = \frac{J_\infty}{s} + \frac{J_0-J_\infty}{s+1/\tau_c}
+\end{equation*}
+
+\bigskip
+
+Since (2) is a convolution integral,
+
+\begin{equation*}
+    \mathcal{L}\{\varepsilon_2(t)\} = \sigma_0\omega*\mathcal{L}\{cos(\omega\tau)\}*\mathcal{L}\{J(t)\}
+\end{equation*}
+
+\begin{equation*}
+    \mathcal{L}\{\varepsilon_2(t)\} = \sigma_0\omega*\frac{s}{s^2+\omega^2}*(\frac{J_\infty}{s} + \frac{J_0-J_\infty}{s+1/\tau_c})
+\end{equation*}
+
+\begin{equation*}
+    \mathcal{L}\{\varepsilon_2(t)\} = \frac{J_\infty\sigma_0\omega}{s^2+\omega^2} + \frac{(J_0-J_\infty)(\tau_c\sigma_0\omega)s}{\tau_c s^3+s^2+\tau_c\omega^2 s+\omega^2}
+\end{equation*}
+
+\newpage
+
+
+\subsection*{1--2. \textbf{Index notation} [4 pts].}
+
+Let $\bm{w}=\bm{q} \times \bm{r}$,
+
+\begin{equation*}
+    \bm{p} \times \bm{w} = \epsilon_{ijk} p_j w_k
+\end{equation*}
+
+\begin{equation*}
+    = \epsilon_{ijk} p_j (\epsilon_{klm} q_l r_m)
+\end{equation*}
+
+\begin{equation*}
+    = (\epsilon_{kij} \epsilon_{klm}) p_j q_l r_m
+\end{equation*}
+
+\begin{equation*}
+    = (\delta_{il} \delta_{jm} - \delta_{im} \delta_{jl}) p_j q_l r_m
+\end{equation*}
+
+\begin{equation*}
+    = p_j q_l r_m \delta_{il} \delta_{jm} - p_j q_l r_m \delta_{im} \delta_{jl}
+\end{equation*}
+
+\begin{equation*}
+    = (p_j r_m \delta_{jm}) q_l \delta_{il} - (p_j q_l \delta_{jl}) r_m \delta_{im}
+\end{equation*}
+
+\begin{equation*}
+    = (r_j p_j) q_i - (q_j p_j) r_i
+\end{equation*}
+
+\begin{equation*}
+    = (\bm{r} \cdot \bm{p}) \bm{q} - (\bm{q} \cdot \bm{p}) \bm{r}
+\end{equation*}
+
+\newpage
+
+
+Let $\bm{u} = \bm{p} \times \bm{q}$ and $\bm{v} = \bm{a} \times \bm{b}$
+
+\begin{equation*}
+    \bm{u} \cdot \bm{v} = u_i v_i
+\end{equation*}
+
+\begin{equation*}
+    = (\epsilon_{ikl} p_k q_l) (\epsilon_{imn} a_m b_n)
+\end{equation*}
+
+\begin{equation*}
+    = (\delta_{km} \delta_{ln} - \delta_{kn} \delta_{lm}) p_k q_l a_m b_n
+\end{equation*}
+
+\begin{equation*}
+    = \delta_{km} \delta_{ln} p_k q_l a_m b_n - \delta_{kn} \delta_{lm} p_k q_l a_m b_n
+\end{equation*}
+
+\begin{equation*}
+    = (p_k a_m \delta_{km}) (q_l b_n \delta_{ln}) - (p_k b_n \delta_{kn}) (q_l a_m \delta_{lm})
+\end{equation*}
+
+\begin{equation*}
+    = (p_k a_k)(q_l b_l) - (q_l a_l)(p_k b_k)
+\end{equation*}
+
+\begin{equation*}
+    = (\bm{p} \cdot \bm{a}) (\bm{q} \cdot \bm{b}) - (\bm{q} \cdot \bm{a})(\bm{p} \cdot \bm{b})
+\end{equation*}
+
+\newpage
+
+
+\begin{equation*}
+    (\bm{a} \otimes \bm{b})(\bm{p} \otimes \bm{q}) = (a_i b_j(\bm{e}^{(i)} \otimes \bm{e}^{(j)})(p_k q_l(\bm{e}^{(k)} \otimes \bm{e}^{(l)})
+\end{equation*}
+
+\begin{equation*}
+    = 
+\end{equation*}
+
+
+\begin{equation*}
+    = \bm{a}\otimes\bm{q}(\bm{b} \cdot \bm{p})
+\end{equation*}
+
+\newpage
+
+
+\begin{equation*}
+    \bm{Q}^\intercal \bm{a} \cdot \bm{Q}^\intercal \bm{b} = 
+\end{equation*}
+
+
+\begin{equation*}
+    = \bm{a} \cdot \bm{b}
+\end{equation*}
+
+\newpage
+
+
+\subsection*{1--4. \textbf{Vector and tensor calculus} [4 pts].} Show the following vector and tensor identities to be true using index notation:
+
+\begin{equation*}
+    \gradX \times (\phi \bm{a}) = \epsilon_{ijk} (\phi a)_{k,j} \bm{e}_{i}
+\end{equation*}
+
+\begin{equation*}
+    = \epsilon_{ijk}(a_k \phi_{,j} + \phi a_{k,j})\bm{e}_{i}
+\end{equation*}
+
+\begin{equation*}
+    = \epsilon_{ijk} a_k \phi_{,j} \bm{e}_{i} + \epsilon_{ijk} \phi a_{k,j} \bm{e}_{i}
+\end{equation*}
+
+\begin{equation*}
+    = \phi(\epsilon_{ijk}  a_{k,j} \bm{e}_{i}) + \epsilon_{ijk} \phi_{,j} a_k \bm{e}_{i}
+\end{equation*}
+
+\begin{equation*}
+    = \phi \gradX \times \bm{a} + (\gradX\phi) \times \bm{a}
+\end{equation*}
+
+\newpage
+
+
+\begin{equation*}
+    \gradX (\bm{a} \cdot \bm{b}) = (a_j b_j)_i \bm{e}_i
+\end{equation*}
+
+\begin{equation*}
+    = (b_j a_{j,i} + a_j b_{j,i}) \bm{e}_i
+\end{equation*}
+
+\bigskip
+
+\begin{equation*}
+    (\bm{a} \cdot \gradX) \bm{b} = a_j b_{i,j}
+\end{equation*}
+
+\begin{equation*}
+    (\bm{b} \cdot \gradX) \bm{a} = b_j a_{i,j}
+\end{equation*}
+
+\begin{equation*}
+    \bm{a} \times (\gradX \times \bm{b}) = \epsilon_{ijk} a_j (\epsilon_{klm} b_{m,l} \bm{e}_k)
+\end{equation*}
+
+\begin{equation*}
+    = (\epsilon_{kij} \epsilon_{klm}) a_j b_{m,l} \bm{e}_k
+\end{equation*}
+
+\begin{equation*}
+    = (\delta_{il} \delta_{jm} - \delta_{im} \delta_{jl}) a_j b_{m,l} \bm{e}_k
+\end{equation*}
+
+\begin{equation*}
+    = \delta_{il} \delta_{jm} a_j b_{m,l} \bm{e}_k - \delta_{im} \delta_{jl} a_j b_{m,l} \bm{e}_k
+\end{equation*}
+
+\begin{equation*}
+    \bm{b} \times (\gradX \times \bm{a}) = \epsilon_{ijk} b_j (\epsilon_{klm} a_{m,l} \bm{e}_k)
+\end{equation*}
+
+\begin{equation*}
+    = (\epsilon_{kij} \epsilon_{klm}) b_j a_{m,l} \bm{e}_k
+\end{equation*}
+
+\begin{equation*}
+    = (\delta_{il} \delta_{jm} - \delta_{im} \delta_{jl}) b_j a_{m,l} \bm{e}_k
+\end{equation*}
+
+\begin{equation*}
+    = \delta_{il} \delta_{jm} b_j a_{m,l} \bm{e}_k - \delta_{im} \delta_{jl} b_j a_{m,l} \bm{e}_k
+\end{equation*}
+
+
+
+
+\begin{equation*}
+    = (\bm{a} \cdot \gradX) \bm{b} + (\bm{b} \cdot \gradX) \bm{a} + \bm{a} \times (\gradX \times \bm{b}) + \bm{b} \times (\gradX \times \bm{a})
+\end{equation*}
+
+I ran out of time to solve all the problems, but I'm planning to keep working on them and resubmit the assignment later. Thank you!
+
+\end{document}
