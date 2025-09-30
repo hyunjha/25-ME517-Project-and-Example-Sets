@@ -315,4 +315,31 @@ Let $\bm{u} = \bm{p} \times \bm{q}$ and $\bm{v} = \bm{a} \times \bm{b}$
 
 I ran out of time to solve all the problems, but I'm planning to keep working on them and resubmit the assignment later. Thank you!
 
+\newpage
+
+
+\section*{Examples II. Kinetics, Constitutive Laws, and Viscoelasticity I}
+
+\subsection*{2--1. \textbf{Balance of mass} [4 pts].}
+
+\begin{equation*}
+    \frac{\partial \rho}{\partial t} + \gradX \cdot (\rho \bm{v}) = 0
+\end{equation*}
+
+\begin{equation*}
+    \frac{\partial \rho}{\partial t} + \frac{1}{r} \frac{\partial (r \rho v_r)}{\partial r} + \frac{1}{r} \frac{\partial \rho v_\theta}{\partial \theta} + \frac{\partial \rho v_z}{\partial z} = 0
+\end{equation*}
+
+\begin{equation*}
+    \frac{\partial \rho}{\partial t} + \frac1r (\rho v_r \frac{\partial r}{\partial r}+ rv_r \frac{\partial \rho}{\partial r} + r \rho \frac{\partial v_r}{\partial r}) + 0 + 0 = 0
+\end{equation*}
+
+\begin{equation*}
+    \rho_{,t} + \frac{\rho v_r}{r} + v_r \rho_{,r} + \rho v_{r,r} = 0
+\end{equation*}
+
+\begin{equation*}
+    \rho_{,t} + \rho_{,r} v_r + \frac{\rho}{r}(v_r + r v_{r,r}) = 0
+\end{equation*}
+
 \end{document}
