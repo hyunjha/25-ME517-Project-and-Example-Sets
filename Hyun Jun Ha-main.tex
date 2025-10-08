@@ -1,22 +1,21 @@
-\documentclass[preprint,12pt,authoryear]{elsarticle}
+\documentclass{article}
+
+\usepackage[square,numbers]{natbib}
+\usepackage[colorlinks=true, citecolor=black]{hyperref}
+\bibliographystyle{unsrtnat}
 
 \input{instr-preamble}
 \input{instr-mathsymbols}
 
-\journal{ME517---Mechanics of Soft Materials}
+\title{MECHENG 517---Mechanics of Soft Materials}
+\author{Hyun Jun Ha}
+\date {Fall 2025}
 
 \setlength{\marginparwidth}{2cm}
 
 \begin{document}
 
-\begin{frontmatter}
-
-\title{MECHENG 517---Mechanics of Soft Materials}
-
-\author{Hyun Jun Ha} 
-
-\end{frontmatter}
-
+\maketitle
 
 \section*{Project I: Topic ID and Overview}
 
@@ -318,6 +317,25 @@ I ran out of time to solve all the problems, but I'm planning to keep working on
 \newpage
 
 
+\section*{Project II: Literature Review}
+
+\begin{outline}
+    \1 \textbf{Introductory context}
+        \2 Synthetic, polymer patches were first used in the 1980s to repair massive rotator cuff tears \cite{ozaki1986reconstruction}, but with increasing prevalence \cite{yamaguchi2006demographic} and persistently high re-tear rates of 20\% \cite{longo2021retear}, current research has focused on using patches to augment suture repairs for all tear sizes \cite{cobb2022rotator}. Patch augmentation provides support to the torn tendon by sharing load with the sutures \cite{shea2012biomechanical} and can significantly reduce re-tear rates \cite{de2022benefits}.
+    
+    \1 \textbf{The state of the field}
+        \2 Patches have been developed mainly for biocompatibility, leading to a focus on extracellular matrix (ECM)-based materials that comprise the majority of commerically-available patches \cite{hakimi2013synthetic}. Some of their mechanical properties have been evaluated in-vivo as part of a full repair \cite{barber2008ultimate, mehta2020biomechanical} and in-vitro by themselves \cite{derwin2006commercial, chaudhury2012tensile} with measurements of load-to-failure, gap formation, and elastic moduli.
+        
+    \1 \textbf{The Big Gap}
+        \2 Although it is well-established that the mechanical properties of an implant should closely match that of native tissue to prevent shielding \cite{vunjak2004tissue}, the properties of patches relative to rotator cuff tendons are largely unknown, especially in terms of their hyper- and viscoelastic behavior. Characterization of biological materials remains difficult due to their complex structure, natural variability, and limited measurement techniques.
+\end{outline}
+
+\bibliography{Hyun-Jun-Ha-references}
+
+
+\newpage
+
+
 \section*{Examples II. Kinetics, Constitutive Laws, and Viscoelasticity I}
 
 \subsection*{2--1. \textbf{Balance of mass} [4 pts].}
@@ -327,19 +345,324 @@ I ran out of time to solve all the problems, but I'm planning to keep working on
 \end{equation*}
 
 \begin{equation*}
-    \frac{\partial \rho}{\partial t} + \frac{1}{r} \frac{\partial (r \rho v_r)}{\partial r} + \frac{1}{r} \frac{\partial \rho v_\theta}{\partial \theta} + \frac{\partial \rho v_z}{\partial z} = 0
+    \frac{\partial \rho}{\partial t} + \frac{1}{r^2} \frac{\partial (r^2 \rho v_r)}{\partial r} + \frac{1}{r \sin \theta} \frac{\partial (\rho v_\theta \sin \theta)}{\partial \theta} + \frac{1}{r \sin \theta} \frac{\partial \rho v_z}{\partial z} = 0
 \end{equation*}
 
 \begin{equation*}
-    \frac{\partial \rho}{\partial t} + \frac1r (\rho v_r \frac{\partial r}{\partial r}+ rv_r \frac{\partial \rho}{\partial r} + r \rho \frac{\partial v_r}{\partial r}) + 0 + 0 = 0
+    \frac{\partial \rho}{\partial t} + \frac{1}{r^2} (\rho v_r \frac{\partial r^2}{\partial r}+ r^2v_r \frac{\partial \rho}{\partial r} + r^2 \rho \frac{\partial v_r}{\partial r}) + 0 + 0 = 0
 \end{equation*}
 
 \begin{equation*}
-    \rho_{,t} + \frac{\rho v_r}{r} + v_r \rho_{,r} + \rho v_{r,r} = 0
+    \rho_{,t} + \frac{2 \rho v_r}{r} + v_r \rho_{,r} + \rho v_{r,r} = 0
 \end{equation*}
 
 \begin{equation*}
-    \rho_{,t} + \rho_{,r} v_r + \frac{\rho}{r}(v_r + r v_{r,r}) = 0
+    \rho_{,t} + \rho_{,r} v_r + \frac{\rho}{r}(2v_r + r v_{r,r}) = 0
+\end{equation*}
+
+\newpage
+
+
+\begin{equation*}
+    \gradX \cdot \bm{v} = 0
+\end{equation*}
+
+\begin{equation*}
+    \frac{1}{r^2} \frac{d r^2 v_r}{d r} = 0
+\end{equation*}
+
+\begin{equation*}
+    \frac{1}{r^2} (v_r \frac{d r^2}{d r} + r^2 \frac{d v_r}{d r}) = 0
+\end{equation*}
+
+\begin{equation*}
+    \frac{2v_r}{r} + \frac{d v_r}{d r} = 0
+\end{equation*}
+
+\begin{equation*}
+    \frac{2v_r}{r} = - \frac{d v_r}{d r}
+\end{equation*}
+
+\begin{equation*}
+    \frac{1}{r}dr = -\frac{1}{2v_r}dv_r
+\end{equation*}
+
+\begin{equation*}
+    \int_{R}^{r} \frac{1}{r}dr = \int_{\dot R}^{v_r} -\frac{1}{2v_r}dv_r
+\end{equation*}
+
+\begin{equation*}
+    \int_{R}^{r} \frac{1}{r}dr = -\frac12 \int_{\dot R}^{v_r} \frac{1}{v_r}dv_r
+\end{equation*}
+
+\begin{equation*}
+    ln|r| - ln|R| = -\frac12 (ln|v_r| - ln|\dot R|)
+\end{equation*}
+
+\begin{equation*}
+    ln|\frac{r}{R}| = ln(|\frac{v_r}{\dot R}|^{-\frac12})
+\end{equation*}
+
+\begin{equation*}
+    \frac{r}{R} = (\frac{v_r}{\dot R})^{-\frac12}
+\end{equation*}
+
+\begin{equation*}
+    \frac{r}{R} = (\frac{v_r}{\dot R})^{-\frac12}
+\end{equation*}
+
+\begin{equation*}
+    \frac{R^2}{r^2} = \frac{v_r}{\dot R}
+\end{equation*}
+
+\begin{equation*}
+    v_r(r,t) = \frac{R^2 \dot R}{r^2}
+\end{equation*}
+
+\newpage
+
+
+\subsection*{2--2. \textbf{Balance of momenta} [4 pts].}
+
+
+
+
+\newpage
+
+
+\subsection*{2--3. \textbf{Viscoelastic data} [4 pts].} 
+
+(a) The material can be described with linear viscoelasticity but only from $\varepsilon = 0$ to about $\varepsilon = 2$, where the isochrones are linear and their slopes scale with time.
+
+\bigskip
+
+(b)
+
+$\sigma=100$ Pa: $\varepsilon(2) = 0.44$, $\varepsilon(5) = 0.53$, $\varepsilon(10) = 0.67$, $\varepsilon(20) = 0.82$, $\varepsilon(40) = 1$
+
+$\sigma=250$ Pa: $\varepsilon(2) = 1.2$, $\varepsilon(5) = 1.45$, $\varepsilon(10) = 1.8$, $\varepsilon(20) = 2.4$, $\varepsilon(40) = 3$
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{Picture1.png}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{equation*}
+    \log(J_{c,\ 100 Pa}) = 0.2805 \log(t) - 0.4535
+\end{equation*}
+
+\begin{equation*}
+    J_{c,\ 100 Pa} = 10^{0.2805 \log(t) - 0.4535} = 10^{-0.4535} t^{0.2805} \approx 0.3520 t^{0.2805}
+\end{equation*}
+
+\bigskip
+
+\begin{equation*}
+    \log(J_{c,\ 250 Pa}) = 0.3145 \log(t) - 0.0377
+\end{equation*}
+
+\begin{equation*}
+    J_{c,\ 250 Pa} = 10^{0.3145 \log(t) - 0.0377} = 10^{-0.0377} t^{0.3145} \approx 0.9170 t^{0.3145}
+\end{equation*}
+
+\newpage
+
+
+\subsection*{2--4. \textbf{Impulsive stresses} [4 pts].}
+
+(a)
+
+\begin{equation*}
+    \varepsilon(t) = \int_{0^-}^{t} J_c(t-\tau) \frac{d\sigma(\tau)}{d\tau} d\tau
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(t) = A \int_{0^-}^{t} J_c(t-\tau) \frac{d\delta(\tau)}{d\tau} d\tau
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(s) = A \cdot \mathcal{L}(\frac{d\delta(t)}{dt}) \cdot \mathcal{L}(J_c(t)) 
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(s) = A \cdot (s \cdot 1 - \delta(0^-)) \cdot J_c(s)
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(s) = A \cdot s \cdot J_c(s)
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(t) = A \dot J_c(t)
+\end{equation*}
+
+\bigskip
+
+\begin{equation*}
+    \eta \dot\varepsilon + E \varepsilon(t) = \sigma(t)
+\end{equation*}
+
+\begin{equation*}
+    \eta \dot\varepsilon + E \varepsilon(t) = A \delta(t)
+\end{equation*}
+
+\begin{equation*}
+    \dot\varepsilon + \frac{E}{\eta} \varepsilon(t) = \frac{A}{\eta} \delta(t)
+\end{equation*}
+
+\begin{equation*}
+    \dot\varepsilon e^\frac{Et}{\eta} + \frac{E}{\eta} \varepsilon(t) e^\frac{Et}{\eta} = \frac{A}{\eta} \delta(t) e^\frac{Et}{\eta}
+\end{equation*}
+
+\begin{equation*}
+    \frac{d}{dt} (\varepsilon(t) e^\frac{Et}{\eta}) = \frac{A}{\eta} \delta(t) e^\frac{Et}{\eta}
+\end{equation*}
+
+\begin{equation*}
+    \int \frac{d}{dt} (\varepsilon(t) e^\frac{Et}{\eta}) dt = \frac{A}{\eta} \int \delta(t) e^\frac{Et}{\eta} dt
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(t) e^\frac{Et}{\eta} = \frac{A}{\eta}
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(t) = \frac{A}{\eta} e^{-\frac{Et}{\eta}}
+\end{equation*}
+
+\newpage
+
+
+(b)
+
+\begin{equation*}
+    \varepsilon(t) = B \int_{0^-}^{t} J_c(t-\tau) \frac{d\psi(\tau)}{d\tau} d\tau
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(s) = B \cdot \mathcal{L}(\frac{d^2\delta(t)}{dt^2}) \cdot \mathcal{L}(J_c(t)) 
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(s) = B \cdot (s^2 \cdot 1 - s \cdot \delta(0^-) - \psi(0^-)) \cdot J_c(s)
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(s) = B \cdot s^2 \cdot J_c(s)
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(t) = B \ddot J_c(s)
+\end{equation*}
+
+\bigskip
+
+\begin{equation*}
+    \eta \dot\varepsilon + E \varepsilon(t) = B \psi(t)
+\end{equation*}
+
+\begin{equation*}
+    \dot\varepsilon + \frac{E}{\eta} \varepsilon(t) = \frac{B}{\eta} \psi(t)
+\end{equation*}
+
+\begin{equation*}
+    \dot\varepsilon e^\frac{Et}{\eta} + \frac{E}{\eta} \varepsilon(t) e^\frac{Et}{\eta} = \frac{B}{\eta} \psi(t) e^\frac{Et}{\eta}
+\end{equation*}
+
+\begin{equation*}
+    \frac{d}{dt} (\varepsilon(t) e^\frac{Et}{\eta}) = \frac{B}{\eta} \psi(t) e^\frac{Et}{\eta}
+\end{equation*}
+
+\begin{equation*}
+    \int \frac{d}{dt} (\varepsilon(t) e^\frac{Et}{\eta}) dt = \frac{B}{\eta} \int \psi(t) e^\frac{Et}{\eta} dt
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(t) e^\frac{Et}{\eta} = \frac{B}{\eta} (-\frac{E}{\eta})
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(t) = -\frac{BE}{\eta^2} e^{-\frac{Et}{\eta}}
+\end{equation*}
+
+\newpage
+
+
+\subsection*{2--5. \textbf{Two-element models} [8 pts].}
+
+(a)
+
+\begin{equation*}
+    \varepsilon(t) = \frac dh sin(\omega t) + \frac dh
+\end{equation*}
+
+\begin{equation*}
+    \dot \varepsilon = \frac{\omega d}{h} cos(\omega t)
+\end{equation*}
+
+\begin{equation*}
+    \eta (\frac{\omega d}{h} cos(\omega t)) + E (\frac dh sin(\omega t) + \frac dh) = \sigma(t)
+\end{equation*}
+
+\begin{equation*}
+   \sigma(t) = \frac{\eta \omega d}{h} cos(\omega t) + \frac{Ed}{h} sin(\omega t) + \frac{Ed}{h}
+\end{equation*}
+
+\bigskip
+
+(b)
+
+\begin{equation*}
+    \sigma(t) = \sqrt{(\frac{\eta \omega d}{h})^2 + (\frac{Ed}{h})^2} \ sin(\omega t + arctan(\frac{\frac{\eta \omega d}{h}}{\frac{Ed}{h}})) + \frac{Ed}{h}
+\end{equation*}
+
+\begin{equation*}
+    tan(\delta) = \frac{\frac{\eta \omega d}{h}}{\frac{Ed}{h}} = \frac{\eta \omega}{E}
+\end{equation*}
+
+\newpage
+
+
+(c)
+
+\begin{equation*}
+    \eta \dot\varepsilon + E \varepsilon(t) = -\sigma_0 - \sigma_0 sin(\omega t)
+\end{equation*}
+
+\begin{equation*}
+    \dot\varepsilon + \frac{E}{\eta} \varepsilon(t) = -\frac{\sigma_0}{\eta} - \frac{\sigma_0}{\eta} sin(\omega t)
+\end{equation*}
+
+\begin{equation*}
+    \dot\varepsilon e^\frac{Et}{\eta} + \frac{E}{\eta} \varepsilon(t) e^\frac{Et}{\eta} = - \frac{\sigma_0}{\eta}e^\frac{Et}{\eta} - \frac{\sigma_0}{\eta} sin(\omega t)e^\frac{Et}{\eta}
+\end{equation*}
+
+\begin{equation*}
+    \frac{d}{dt} (\varepsilon(t) e^\frac{Et}{\eta}) = -\frac{\sigma_0}{\eta}e^\frac{Et}{\eta} - \frac{\sigma_0}{\eta} sin(\omega t)e^\frac{Et}{\eta}
+\end{equation*}
+
+\begin{equation*}
+    \int \frac{d}{dt} (\varepsilon(t) e^\frac{Et}{\eta}) dt = -\frac{\sigma_0}{\eta} \int e^\frac{Et}{\eta} dt - \frac{\sigma_0}{\eta} \int sin(\omega t)e^\frac{Et}{\eta} dt
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(t) e^\frac{Et}{\eta} = -\frac{\sigma_0}{\eta}(\frac{\eta}{E} e^{\frac{Et}{\eta}}) - \frac{\sigma_0}{\eta} (\frac{e^{\frac{Et}{\eta}}}{(\frac{E}{\eta})^2 + \omega^2} (\frac{E}{\eta} sin(\omega t) - \omega cos(\omega t))) + C
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(t) = -\frac{\sigma_0}{E} - \frac{\sigma_0}{\eta ((\frac{E}{\eta})^2 + \omega^2)} (\frac{E}{\eta} sin(\omega t) - \omega cos(\omega t))) + C e^{-{\frac{Et}{\eta}}}
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(t) = -\frac{\sigma_0}{E} - \frac{E \sigma_0}{\eta^2 ((\frac{E}{\eta})^2 + \omega^2)} sin(\omega t) + \frac{\omega \sigma_0}{\eta ((\frac{E}{\eta})^2 + \omega^2)} cos(\omega t) + C e^{-{\frac{Et}{\eta}}}
+\end{equation*}
+
+\bigskip
+
+(d)
+\begin{equation*}
+    tan(\delta) = \frac{\frac{\omega \sigma_0}{\eta ((\frac{E}{\eta})^2 + \omega^2)}}{-\frac{E \sigma_0}{\eta^2 ((\frac{E}{\eta})^2 + \omega^2)}} = -\frac{\eta \omega}{E}
 \end{equation*}
 
 \end{document}
