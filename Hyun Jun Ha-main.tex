@@ -2,6 +2,8 @@
 
 \usepackage[square,numbers]{natbib}
 \usepackage[colorlinks=true, citecolor=black]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{textgreek}
 \bibliographystyle{unsrtnat}
 
 \input{instr-preamble}
@@ -332,7 +334,6 @@ I ran out of time to solve all the problems, but I'm planning to keep working on
 
 \bibliography{Hyun-Jun-Ha-references}
 
-
 \newpage
 
 
@@ -424,8 +425,168 @@ I ran out of time to solve all the problems, but I'm planning to keep working on
 
 \subsection*{2--2. \textbf{Balance of momenta} [4 pts].}
 
+(a)
+
+\begin{equation*}
+    \int_{\partial \Omega_t} \bm{t} ~ dA_{\bm{x}} = \int_{\Omega} \gradX \cdot \bm{t} ~ dV
+\end{equation*}
+
+\begin{equation*}
+    \int_{\Omega} \gradX \cdot (-\rho_w g x_3) ~dV
+\end{equation*}
+
+\begin{equation*}
+    \int_{\Omega} -\rho_w g ~ dV
+\end{equation*}
+
+\begin{equation*}
+    -\rho_w g (\frac43 \pi R^3)
+\end{equation*}
+
+\begin{equation*}
+    -\frac43 \rho_w g \pi R^3
+\end{equation*}
+
+\bigskip
+
+\begin{equation*}
+    \rho(x_2) = \frac{\frac32 \rho_w - \frac12 \rho_w}{2R}x_2 + \rho_w = \frac{\rho_w}{2R}x_2 + \rho_w
+\end{equation*}
+
+\begin{equation*}
+    x_1 = r\cos\theta\sin\phi,~ x_2 = r\cos\phi,~ x_3 = r\sin\theta \sin\phi
+\end{equation*}
+
+\begin{equation*}
+    \int_\Omega \bm{b} ~ dV = \int_0^\pi \int_0^{2\pi} \int_0^R (\rho V g) ~dr d\theta d\phi 
+\end{equation*}
+
+\begin{equation*}
+    \int_0^\pi \int_0^{2\pi} \int_0^R (\frac{\rho_w}{2R} (r\cos\phi) + \rho_w)(r^2 \sin\phi)g ~dr d\theta d\phi 
+\end{equation*}
+
+\begin{equation*}
+    \int_0^\pi \int_0^{2\pi} \int_0^R (\frac{\rho_w g r^3 \sin\phi \cos\phi}{2R} + \rho_w g r^2 \sin\phi) ~dr d\theta d\phi 
+\end{equation*}
+
+\begin{equation*}
+    \int_0^\pi \int_0^{2\pi} (\frac{\rho_w g R^4 \sin\phi \cos\phi}{4(2R)} + \frac{\rho_w g R^3 \sin\phi}{3}) ~d\theta d\phi 
+\end{equation*}
+
+\begin{equation*}
+    \rho_w g R^3\int_0^\pi \int_0^{2\pi} (\frac{\sin\phi \cos\phi}{8} + \frac{\sin\phi}{3}) ~d\theta d\phi
+\end{equation*}
+
+\begin{equation*}
+    \rho_w gR^3(2\pi) \int_0^\pi (\frac{\sin\phi \cos\phi}{8} + \frac{\sin\phi}{3}) ~d\phi 
+\end{equation*}
+
+\begin{equation*}
+    \rho_w gR^3(2\pi) (-\frac{\cos^2\phi}{2(8)} - \frac{\cos\phi}{3}) \Big|^{\pi}_{0}
+\end{equation*}
+
+\begin{equation*}
+    \rho_w gR^3(2\pi) (-\frac{1}{16}+\frac{1}{3}+\frac{1}{16}+{\frac{1}{3}})
+\end{equation*}
+
+\begin{equation*}
+    \rho_w gR^3(2\pi) (-\frac{1}{16}+\frac{1}{3}+\frac{1}{16}+{\frac{1}{3}})
+\end{equation*}
+
+\begin{equation*}
+    \frac43 \rho_w g \pi R^3
+\end{equation*}
+
+\newpage
 
 
+(b)
+
+Force Balance:
+
+\begin{equation*}
+    \int_{\partial \Omega_t} \bm{t} ~dA_{\bm{x}} + \int_\Omega \bm{b} ~ dV = -\frac43 \rho_w g \pi R^3 + \frac43 \rho_w g \pi R^3 = 0
+\end{equation*}
+
+\bigskip
+
+Moment Balance:
+
+\begin{equation*}
+    \int_{\partial \Omega_t} \bm{x} \times \bm{t} ~dA = \int_{\Omega} \bm{x} \times (\gradX \cdot \bm{t}) ~dV
+\end{equation*}
+
+\begin{equation*}
+    \int_{\Omega} \bm{x} \times (\gradX \cdot -\rho_wgx_3) ~dV
+\end{equation*}
+
+\begin{equation*}
+    \int_{\Omega} (x_1\bm{e_1}+x_2\bm{e_2}+x_3\bm{e_3}) \times (-\rho_wg)\bm{e_3} ~dV
+\end{equation*}
+
+\begin{equation*}
+    \int_{\Omega} ((-\rho_wgx_2 - 0)\bm{e_1} + (0 -(-\rho_wgx_1))\bm{e_2}) ~dV
+\end{equation*}
+
+\begin{equation*}
+    \int_{\Omega} -\rho_wg (x_2 \bm{e_1} - x_1\bm{e_2}) ~dV
+\end{equation*}
+
+\bigskip
+
+\begin{equation*}
+    \int_{\Omega} \bm{x} \times \bm{b} ~dV = \int_{\Omega} \bm{x} \times \rho g ~dV
+\end{equation*}
+
+\begin{equation*}
+    \int_{\Omega} (x_1\bm{e_1}+x_2\bm{e_2}+x_3\bm{e_3}) \times (\rho g)\bm{e_3} ~dV
+\end{equation*}
+
+\begin{equation*}
+    \int_{\Omega} ((\rho gx_2-0)\bm{e_1}+(0-\rho gx_1)\bm{e_2}) ~dV
+\end{equation*}
+
+\begin{equation*}
+    \int_{\Omega} \rho g (x_2 \bm{e_1} - x_1\bm{e_2}) ~dV
+\end{equation*}
+
+\newpage
+
+\begin{equation*}
+    \int_{\partial \Omega_t} \bm{x} \times \bm{t} ~dA + \int_{\Omega} \bm{x} \times \bm{b} ~dV = \int_{\Omega} (\rho g-\rho_wg) (x_2 \bm{e_1} - x_1\bm{e_2}) ~dV
+\end{equation*}
+
+\begin{equation*}
+    \int_0^\pi \int_0^{2\pi} \int_0^R ((\frac{\rho_w}{2R} (r\cos\phi) + \rho_w)g - \rho_wg)(r^2\sin\phi) ((r\cos\phi) \bm{e_1} - (r\cos\theta\sin\phi)\bm{e_2}) ~dr d\theta d\phi 
+\end{equation*}
+
+\begin{equation*}
+    \rho_wg \int_0^\pi \int_0^{2\pi} \int_0^R (\frac{r^3}{2R}\sin\phi\cos\phi)((r\cos\phi) \bm{e_1} - (r\cos\theta\sin\phi)\bm{e_2}) ~dr d\theta d\phi 
+\end{equation*}
+
+\begin{equation*}
+    \rho_wg \int_0^\pi \int_0^{2\pi} \int_0^R ((\frac{r^4}{2R}\sin\phi\cos^2\phi)\bm{e_1} - (\frac{r^4}{2R}\sin^2\phi\cos\phi\cos\theta)\bm{e_2}) ~dr d\theta d\phi
+\end{equation*}
+
+\begin{equation*}
+    \rho_wg \int_0^\pi \int_0^{2\pi} ((\frac{R^4}{10}\sin\phi\cos^2\phi)\bm{e_1} - (\frac{R^4}{10}\sin^2\phi\cos\phi\cos\theta)\bm{e_2}) ~d\theta d\phi
+\end{equation*}
+
+\begin{equation*}
+    \rho_wg(2\pi) \int_0^\pi (\frac{R^4}{10}\sin\phi\cos^2\phi)\bm{e_1} ~d\phi
+\end{equation*}
+
+\begin{equation*}
+    \rho_wg(2\pi) (-\frac{R^4}{30}\cos^3\phi) \bm{e_1}
+\end{equation*}
+
+\begin{equation*}
+    \rho_wg(2\pi) (-\frac{R^4}{30}(-1)^3 + \frac{R^4}{30}(1)^3) \bm{e_1}
+\end{equation*}
+
+\begin{equation*}
+    \frac{2\pi}{15} \rho_wgR^4\bm{e_1}
+\end{equation*}
 
 \newpage
 
@@ -444,26 +605,25 @@ $\sigma=250$ Pa: $\varepsilon(2) = 1.2$, $\varepsilon(5) = 1.45$, $\varepsilon(1
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=1\linewidth]{Picture1.png}
-    \label{fig:placeholder}
+    \includegraphics[width=1\linewidth]{2-3(b).png}
 \end{figure}
 
 \begin{equation*}
-    \log(J_{c,\ 100 Pa}) = 0.2805 \log(t) - 0.4535
+    \log(J_{c,\ 100 Pa}) = 0.2805 \log(t) - 2.4535
 \end{equation*}
 
 \begin{equation*}
-    J_{c,\ 100 Pa} = 10^{0.2805 \log(t) - 0.4535} = 10^{-0.4535} t^{0.2805} \approx 0.3520 t^{0.2805}
+    J_{c,\ 100 Pa} = 10^{0.2805 \log(t) - 2.4535} = 10^{-2.4535} t^{0.2805} \approx 0.003520 t^{0.2805}
 \end{equation*}
 
 \bigskip
 
 \begin{equation*}
-    \log(J_{c,\ 250 Pa}) = 0.3145 \log(t) - 0.0377
+    \log(J_{c,\ 250 Pa}) = 0.3145 \log(t) - 2.4357
 \end{equation*}
 
 \begin{equation*}
-    J_{c,\ 250 Pa} = 10^{0.3145 \log(t) - 0.0377} = 10^{-0.0377} t^{0.3145} \approx 0.9170 t^{0.3145}
+    J_{c,\ 250 Pa} = 10^{0.3145 \log(t) - 2.4357} = 10^{-2.4357} t^{0.3145} \approx 0.003667 t^{0.3145}
 \end{equation*}
 
 \newpage
@@ -661,8 +821,523 @@ $\sigma=250$ Pa: $\varepsilon(2) = 1.2$, $\varepsilon(5) = 1.45$, $\varepsilon(1
 \bigskip
 
 (d)
+
 \begin{equation*}
     tan(\delta) = \frac{\frac{\omega \sigma_0}{\eta ((\frac{E}{\eta})^2 + \omega^2)}}{-\frac{E \sigma_0}{\eta^2 ((\frac{E}{\eta})^2 + \omega^2)}} = -\frac{\eta \omega}{E}
 \end{equation*}
+
+
+\newpage
+
+
+\section*{Examples III. Linear Viscoelastic Models}
+
+\subsection*{3--1. \textbf{Converting creep to relaxation} [4 pts].} 
+
+(a)
+
+\begin{figure} [ht]
+    \centering
+    \includegraphics[width=1\linewidth]{3-1(a).png}
+\end{figure}
+
+\begin{equation*}
+    t_{63.2\%} = 5.17 ~s, ~t_{86.4\%} = 10.9 ~s, ~t_{95\%} = 17.5 ~s
+\end{equation*}
+
+\newpage
+
+
+(b)
+
+\begin{equation*}
+    J_c(t) = \frac{1}{1000} (10 - 5e^{-\frac{t}{4}} - 3e^{-\frac{t}{8}})
+\end{equation*}
+
+\begin{equation*}
+    J_c(s) = \frac{1}{1000} (\frac{10}{s} - \frac{5}{s+\frac14} - \frac{3}{s+\frac18})
+\end{equation*}
+
+\bigskip
+
+\begin{equation*}
+    \sigma(t) = \int_0^t G_r(t-\tau) \frac{d\varepsilon(\tau)}{d\tau} d\tau
+\end{equation*}
+
+\begin{equation*}
+    \sigma(s) = G_r(s) \cdot s\varepsilon(s)
+\end{equation*}
+
+\bigskip
+
+\begin{equation*}
+    \epsilon(t) = \int_0^t J_c(t-\tau) \frac{d\sigma(\tau)}{d\tau} d\tau
+\end{equation*}
+
+\begin{equation*}
+    \epsilon(s) = J_c(s) \cdot s\sigma(s)
+\end{equation*}
+
+\bigskip
+
+\begin{equation*}
+    \frac{\sigma(s)}{\varepsilon(s)} = sG_r(s) = \frac{1}{sJ_c(s)}
+\end{equation*}
+
+\begin{equation*}
+    G_r(s) = \frac{1}{s^2 J_c(s)} = \frac{1}{\frac{s^2}{1000} (\frac{10}{s} - \frac{5}{s+\frac14} - \frac{3}{s+\frac18})}
+\end{equation*}
+
+\begin{equation*}
+    = \frac{1000}{10s - \frac{5s^2}{s+\frac14} - \frac{3s^2}{s+\frac18}}
+\end{equation*}
+
+\begin{equation*}
+    = \frac{500(s+\frac14)(s+\frac18)}{s(s^2+\frac{19}{16}s+\frac{5}{32})}
+\end{equation*}
+
+\begin{equation*}
+    = \frac{100}{s} + \frac{400s+\frac{275}{4}}{s^2+\frac{19}{16}s+\frac{5}{32}}
+\end{equation*}
+
+\begin{equation*}
+    = \frac{100}{s} + \frac{400(s+\frac{11}{64})}{(s+\frac{19}{32})^2-\frac{201}{1024}}
+\end{equation*}
+
+\begin{equation*}
+    = \frac{100}{s} + 400(\frac{s+\frac{19}{32}}{(s+\frac{19}{32})^2-\frac{201}{1024}} - \frac{\frac{27}{64}(\sqrt{\frac{1024}{201}})(\sqrt{\frac{201}{1024}})}{(s+\frac{19}{32})^2-\frac{201}{1024}})
+\end{equation*}
+
+\begin{equation*}
+    G_r(t) = 100 + 400(e^{-\frac{19}{32}t}\cosh(\sqrt{\frac{201}{1024}}t) - \frac{27}{64}(\sqrt{\frac{1024}{201}})e^{-\frac{19}{32}t}\sinh(\sqrt{\frac{201}{1024}}t))
+\end{equation*}
+
+\newpage
+
+\begin{figure} [ht]
+    \centering
+    \includegraphics[width=1\linewidth]{3-1(b).png}
+\end{figure}
+
+\begin{equation*}
+    t_{63.2\%} = 0.996 ~s, ~t_{86.4\%} = 2.03 ~s, ~t_{95\%} = 3.20 ~s
+\end{equation*}
+
+\bigskip
+
+The stress relaxation times are much lower than the creep times.
+
+\newpage
+
+
+\subsection*{3--2. \textbf{Alternate standard linear solid model} [4 pts].}
+
+(a)
+
+\begin{equation*}
+    \sigma(t) = \sigma_s(t) = \sigma_{KV}(t)
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(t) = \varepsilon_s(t) + \varepsilon_{KV}(t)
+\end{equation*}
+
+\begin{equation*}
+    \sigma_{KV}(t) = \eta\dot\varepsilon_{KV} + E_1\varepsilon_{KV}(t)
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon_s(t) = \frac{1}{E}\sigma_s(t)
+\end{equation*}
+
+\bigskip
+
+\begin{equation*}
+    \sigma(t) = \eta\dot\varepsilon_{KV} + E_1\varepsilon_{KV}(t)
+\end{equation*}
+
+\begin{equation*}
+    \frac{1}{\eta}\sigma(t) = \dot\varepsilon_{KV} + \frac{E_1}{\eta}\varepsilon_{KV}(t)
+\end{equation*}
+
+\begin{equation*}
+    \frac{1}{\eta}\sigma(t) + \frac{1}{E}\dot\sigma= \dot\varepsilon_{KV} + \frac{E_1}{\eta}\varepsilon_{KV}(t) + \dot\varepsilon_s
+\end{equation*}
+
+\begin{equation*}
+    \frac{1}{\eta}\sigma(t) + \frac{1}{E}\dot\sigma = \dot\varepsilon + \frac{E_1}{\eta}\varepsilon_{KV}(t)
+\end{equation*}
+
+\begin{equation*}
+    \frac{1}{\eta}\sigma(t) + \frac{1}{E}\dot\sigma + \frac{E_1}{E\eta}\sigma(t)= \dot\varepsilon + \frac{E_1}{\eta}\varepsilon_{KV}(t) + \frac{E_1}{\eta}\varepsilon_s(t)
+\end{equation*}
+
+\begin{equation*}
+    \frac{1}{E}\dot\sigma + \frac{E_1+E}{E\eta}\sigma(t)= \dot\varepsilon + \frac{E_1}{\eta}\varepsilon(t)
+\end{equation*}
+
+\newpage
+
+
+(b)
+
+\begin{equation*}
+    \sigma(0) = 0, ~\varepsilon(0) = 0
+\end{equation*}
+
+\begin{equation*}
+    \frac1E s\sigma(s) + \frac{E_1+E}{E\eta}\sigma(s) = s\varepsilon(s) + \frac{E_1}{\eta}\varepsilon(s)
+\end{equation*}
+
+\begin{equation*}
+    (\frac1E s + \frac{E_1+E}{E\eta})\sigma(s) = (s + \frac{E_1}{\eta})\varepsilon(s)
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(s) = \frac{\frac1E s + \frac{E_1+E}{E\eta}}{s + \frac{E_1}{\eta}}\sigma(s) = sJ_c(s)\sigma(s)
+\end{equation*}
+
+\begin{equation*}
+    J_c(s) = \frac{\frac1E + \frac{E_1+E}{E\eta s}}{s + \frac{E_1}{\eta}}
+\end{equation*}
+
+\begin{equation*}
+    = \frac{\frac1E}{s + \frac{E_1}{\eta}} + \frac{\frac{E_1+E}{E\eta}}{s(s+\frac{E_1}{\eta})}
+\end{equation*}
+
+\begin{equation*}
+    J_c(t) = \frac1E e^{-\frac{E_1}{\eta}t} + \frac{E_1+E}{E\eta}(\frac{\eta}{E_1})(1-e^{-\frac{E_1}{\eta}t}) 
+\end{equation*}
+
+\begin{equation*}
+    = \frac1E e^{-\frac{E_1}{\eta}t} + \frac{E_1+E}{E_1E}(1-e^{-\frac{E_1}{\eta}t})
+\end{equation*}
+
+\begin{equation*}
+    = \frac{E_1+E}{E_1E} - \frac{1}{E_1}e^{-\frac{E_1}{\eta}t}
+\end{equation*}
+
+\bigskip
+
+\begin{equation*}
+    \sigma(s) = \frac{s + \frac{E_1}{\eta}}{\frac1E s + \frac{E_1+E}{E\eta}}\varepsilon(s) = sG_r(s)\varepsilon(s)
+\end{equation*}
+
+\begin{equation*}
+    G_r(s) = \frac{1 + \frac{E_1}{\eta s}}{\frac1E s + \frac{E_1+E}{E\eta}}
+\end{equation*}
+
+\begin{equation*}
+    = \frac{E + \frac{E_1E}{\eta s}}{s + \frac{E_1+E}{\eta}}
+\end{equation*}
+
+\begin{equation*}
+    = \frac{E}{s + \frac{E_1+E}{\eta}} + \frac{\frac{E_1E}{\eta}}{s(s + \frac{E_1+E}{\eta})}
+\end{equation*}
+
+\begin{equation*}
+    G_r(t) = Ee^{-\frac{E_1+E}{\eta}t} + \frac{E_1E}{\eta}(\frac{\eta}{E_1+E})(1-e^{-\frac{E_1+E}{\eta}t})
+\end{equation*}
+
+\begin{equation*}
+    = Ee^{-\frac{E_1+E}{\eta}t} + \frac{E_1E}{E_1+E}(1-e^{-\frac{E_1+E}{\eta}t})
+\end{equation*}
+
+\begin{equation*}
+    = \frac{E_1E}{E_1+E} - \frac{E^2}{E_1+E}e^{-\frac{E_1+E}{\eta}t}
+\end{equation*}
+
+\newpage
+
+(c) 
+
+Spring in parallel with Maxwell fluid:
+
+\begin{equation*}
+    \dot\sigma + \frac{E_1}{\eta}\sigma(t)= (E_1+E)\dot\varepsilon + \frac{E_1E}{\eta}\varepsilon(t)
+\end{equation*}
+
+Spring in series with Kelvin-Voigt solid (alternate):
+
+\begin{equation*}
+    \dot\sigma + \frac{E_1+E}{\eta}\sigma(t)= E\dot\varepsilon + \frac{E_1E}{\eta}\varepsilon(t)
+\end{equation*}
+
+The coefficients in the constitutive equations of each variant correspond directly to each other, as the two are equivalent in LVE. In the alternate arrangement, E1 and E are in series with each other, so they show up as a simple sum that replaces E1 by itself. But, because E1 isn't in series with the dashpot anymore, it doesn't show up in front of the time-dependent terms.
+
+\newpage
+
+
+\subsection*{3--3. \textbf{Frequency response of a 5-term analog model} [4 pts].}
+
+(a)
+
+\begin{equation*}
+    G_r(t) = 10C_r + 200C_re^{-2t} + 100C_re^{-t}
+\end{equation*}
+
+\begin{equation*}
+    E_\infty = 10C_r, ~E_1 = 200C_r, ~E_2 = 100C_r
+\end{equation*}
+
+\begin{equation*}
+    \tau_1 = \frac{1}{2}, ~\tau_2 = 1
+\end{equation*}
+
+\begin{equation*}
+    \eta_1 = E_1\tau_1 = 100C_r, ~\eta_2 = 100C_r
+\end{equation*}
+
+\begin{figure} [ht]
+    \centering
+    \includegraphics[width=1\linewidth]{3-3(a).jpg}
+\end{figure}
+
+\newpage
+
+
+(b)
+
+\begin{equation*}
+    \Tilde{E}(t) = C_r(200e^{-2t} + 100e^{-t}), ~E_{\infty} = 10C_r
+\end{equation*}
+
+\begin{equation*}
+    E^{'}(\omega) = 10C_r +\omega \int_0^\infty C_r(200e^{-2t} + 100e^{-t}) \sin(\omega t) ~dt
+\end{equation*}
+
+\begin{equation*}
+    = 10C_r + 200C_r\omega \int_0^\infty e^{-2t}\sin(\omega t) ~dt + 100C_r\omega \int_0^\infty e^{-t}\sin(\omega t) ~dt
+\end{equation*}
+
+\begin{equation*}
+    = 10C_r + 200C_r\omega (\frac{e^{-2t}(-2\sin(\omega t) - \omega\cos(\omega t))}{(-2)^2 + \omega^2})\Big|_{0}^{\infty} + 100C_r\omega (\frac{e^{-t}(-\sin(\omega t) - \omega\cos(\omega t))}{(-1)^2 + \omega^2})\Big|_{0}^{\infty}
+\end{equation*}
+
+\begin{equation*}
+    = 10C_r + 200C_r\omega (0-\frac{1(-2\sin0-\omega\cos0)}{4+\omega^2}) + 100C_r\omega (0-\frac{1(-\sin0-\omega\cos0)}{1+\omega^2})
+\end{equation*}
+
+\begin{equation*}
+    = 10C_r + 200C_r(\frac{\omega^2}{4+\omega^2})+ 100C_r(\frac{\omega^2}{1+\omega^2})
+\end{equation*}
+
+\bigskip
+
+\begin{equation*}
+    E^{''}(\omega) = \omega \int_0^\infty C_r(200e^{-2t} + 100e^{-t}) \cos(\omega t) ~dt
+\end{equation*}
+
+\begin{equation*}
+    = 200C_r\omega \int_0^\infty e^{-2t}\cos(\omega t) ~dt + 100C_r\omega \int_0^\infty e^{-t}\cos(\omega t) ~dt
+\end{equation*}
+
+\begin{equation*}
+    = 200C_r\omega (\frac{e^{-2t}(-2\cos(\omega t) + \omega\sin(\omega t))}{(-2)^2 + \omega^2})\Big|_{0}^{\infty} + 100C_r\omega (\frac{e^{-t}(-\cos(\omega t) + \omega\sin(\omega t))}{(-1)^2 + \omega^2})\Big|_{0}^{\infty}
+\end{equation*}
+
+\begin{equation*}
+    = 200C_r\omega (0-\frac{1(-2\cos0+\omega\sin0)}{4+\omega^2}) + 100C_r\omega (0-\frac{1(-\cos0+\omega\sin0)}{1+\omega^2})
+\end{equation*}
+
+\begin{equation*}
+    = 200C_r(\frac{2\omega}{4+\omega^2})+ 100C_r(\frac{\omega}{1+\omega^2})
+\end{equation*}
+
+\bigskip
+
+\begin{equation*}
+    \tan\delta = \frac{200(\frac{2\omega}{4+\omega^2})+ 100(\frac{\omega}{1+\omega^2})}{10 + 200(\frac{\omega^2}{4+\omega^2})+ 100(\frac{\omega^2}{1+\omega^2})}
+\end{equation*}
+
+\newpage
+
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{3-3(b).png}
+\end{figure}
+
+No matter what I do, I can't get two Debye peaks to show up on the plot. I double-checked my equations for storage/loss modulus and they all seem correct, so I'm not sure what I'm doing wrong here. Even when I change all the coefficients, I still get only one peak that just goes up to a different value.
+
+\bigskip
+
+This is my MATLAB script:
+
+clear
+
+close all
+
+omega = logspace(-3,4);
+
+$loss = (200.*( (2.*omega)./(4+omega.^2) ) + 100.*( omega./(1+omega.^2) )) ./ (10 + 200.*( (omega.^2)./(4+omega.^2) ) + 100.*(omega.^2./(1+omega.^2)));$
+
+semilogx(omega,loss)
+
+xlabel("log ω")
+
+ylabel("tan δ")
+
+\newpage
+
+
+
+\subsection*{3--4. \textbf{Fractional response} [4 pts].}
+
+(a)
+
+\begin{equation*}
+    \varepsilon(t) = H(t)
+\end{equation*}
+
+\begin{equation*}
+    \sigma(t) = G_r(t) H(t)
+\end{equation*}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{3-4(a).png}
+\end{figure}
+
+(b)
+
+\begin{equation*}
+    \sigma(t) = H(t) - H(t-5)
+\end{equation*}
+
+\begin{equation*}
+    H(t) - H(t-5) = G_0\varepsilon(t) + G_\alpha D^\alpha \varepsilon(t)
+\end{equation*}
+
+\begin{equation*}
+    \frac1s - \frac{e^{-5s}}{s} = G_0\varepsilon(s) + G_\alpha s^\alpha \varepsilon(s)
+\end{equation*}
+
+\begin{equation*}
+    \frac1s - \frac{e^{-5s}}{s} = (G_0 + G_\alpha s^\alpha)\varepsilon(s)
+\end{equation*}
+
+\begin{equation*}
+    \varepsilon(s) = \frac{\frac1s - \frac{e^{-5s}}{s}}{G_0 + G_\alpha s^\alpha}
+\end{equation*}
+
+\newpage
+
+
+\subsection*{3--5. \textbf{Rheology without a rheometer} [8 pts].}
+
+(a)
+
+\begin{equation*}
+    W_d/V = \rho gh_0 - \rho gh(R) = \rho g(h_0 - h(R))
+\end{equation*}
+
+\bigskip
+
+(b)
+
+\begin{equation*}
+    \sigma(t) = \sigma_{max}\sin(\omega t), ~\varepsilon(t) = \varepsilon_{max}\sin(\omega t - \delta)
+\end{equation*}
+
+\begin{equation*}
+    W = \int_0^{\varepsilon_{max}} \sigma(t) ~d\varepsilon(t)
+\end{equation*}
+
+\begin{equation*}
+    = \int_0^{\frac{\pi}{2\omega}} \sigma(t) \frac{d\varepsilon(t)}{dt} ~dt
+\end{equation*}
+
+\begin{equation*}
+    = \int_0^{\frac{\pi}{2\omega}} (\sigma_{max}\sin(\omega t))(\omega\varepsilon_{max}\cos(\omega t - \delta)) ~dt
+\end{equation*}
+
+\begin{equation*}
+    = \omega\sigma_{max}\varepsilon_{max}\int_0^{\frac{\pi}{2\omega}} \sin(\omega t)(\cos(\omega t)\cos\delta + \sin(\omega t)\sin\delta) ~dt
+\end{equation*}
+
+\begin{equation*}
+    = \omega\sigma_{max}\varepsilon_{max} (-\frac{\cos^2(\omega t)\cos\delta}{2\omega} + \frac{t}{2} - \frac{\sin(\omega t)\cos(\omega t)}{2\omega}) \big|^{\frac{\pi}{2\omega}}_0
+\end{equation*}
+
+\begin{equation*}
+    = \omega\sigma_{max}\varepsilon_{max} (\frac{\cos\delta}{2\omega} + \frac{\pi\sin\delta}{4\omega})
+\end{equation*}
+
+\begin{equation*}
+    = \sigma_{max}\varepsilon_{max} (\frac{\cos\delta}{2} + \frac{\pi\sin\delta}{2\omega})
+\end{equation*}
+
+\begin{equation*}
+    W_s = \frac12 \sigma_{max}\varepsilon_{max}\cos\delta
+\end{equation*}
+
+\begin{equation*}
+    W_s/|E^*| = \frac12 (\sigma_{max}/|E^*|)\varepsilon_{max}\cos\delta
+\end{equation*}
+
+\begin{equation*}
+    = \frac12 (\varepsilon_{max})^2\cos\delta
+\end{equation*}
+
+\begin{equation*}
+    = \frac12 B^2\cos\delta
+\end{equation*}
+
+\newpage
+
+
+(c)
+
+The energy dissipated by the ball can be approximated as half the area of the ellipse in the Lissajous plot:
+
+\begin{equation*}
+    W_d/|E^*| = \frac12 \pi (\frac{\varepsilon_{max}\sin\delta}{\sqrt2})(\varepsilon_{max}\sqrt{2}) 
+\end{equation*}
+
+\begin{equation*}
+    = \frac12 \pi (\varepsilon_{max}\sin\delta)(\varepsilon_{max})
+\end{equation*}
+
+\begin{equation*}
+    = \frac12 \pi AB
+\end{equation*}
+
+\bigskip
+
+(d)
+
+\begin{equation*}
+    \frac{W_d/|E^*|}{W_s/|E^*|} = \frac{\frac12 \pi (\varepsilon_{max}\sin\delta)(\varepsilon_{max})}{\frac12 (\varepsilon_{max})^2\cos\delta} = \pi \tan\delta
+\end{equation*}
+
+\begin{equation*}
+    \frac{W_d/V}{W_s/V} = \frac{\rho g(h_0 - h(R))}{\rho gh_0} = 1 - \frac{h(R)}{h_0}
+\end{equation*}
+
+\begin{equation*}
+    \pi \tan\delta = 1 - \frac{h(R)}{h_0}
+\end{equation*}
+
+\begin{equation*}
+    \tan\delta = \frac1\pi - \frac{h(R)}{\pi h_0}
+\end{equation*}
+
+\bigskip
+
+(e)
+
+\begin{equation*}
+    \omega_{max} = \frac{2\pi}{0.025(0.001)} = 251 ~kHz
+\end{equation*}
+
+\begin{equation*}
+    \omega_{min} = \frac{2\pi}{0.025(1)} = 251 ~Hz
+\end{equation*}
+
+\begin{equation*}
+    251 ~Hz < \omega < 251 ~kHz
+\end{equation*}
+
 
 \end{document}
