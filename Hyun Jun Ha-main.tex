@@ -1339,5 +1339,72 @@ The energy dissipated by the ball can be approximated as half the area of the el
     251 ~Hz < \omega < 251 ~kHz
 \end{equation*}
 
+\newpage
+
+
+\section*{Examples IV. 3D Time-dependent Behavior Examples}
+
+\subsection*{4--1. \textbf{Characterization with deflection history} [4 pts].} 
+
+\bigskip
+
+\begin{equation*}
+    \Sigma F_y = 0: ~A_y(t) = \phi(t) \int^L_0 \hat{q}(z) ~dz
+\end{equation*}
+
+\begin{equation*}
+    \Sigma M_x(A) = 0: ~M_{x,A}(t) = \phi(t)\int^L_0 z\hat{q}(z) ~dz
+\end{equation*}
+
+\begin{equation*}
+    \Sigma M_x(z) = 0 = M_x(z,t) + \phi(t)\int^z_0(z-\Tilde{z})\hat{q}(\Tilde{z}) ~d\Tilde{z} - z\phi(t) \int^L_0 \hat{q}(\Tilde{z}) ~d\Tilde{z} + \phi(t) \int^L_0 \Tilde{z}\hat{q}(\Tilde{z}) ~d\Tilde{z}
+\end{equation*}
+
+\begin{equation*}
+    M_x(z,t) = \phi(t)(z\int^L_0 \hat{q}(\Tilde{z}) ~d\Tilde{z} - \int^z_0(z-\Tilde{z})\hat{q}(\Tilde{z}) ~d\Tilde{z} - \int^L_0 \Tilde{z}\hat{q}(\Tilde{z}) ~d\Tilde{z})
+\end{equation*}
+
+\begin{equation*}
+    \hat{M}_x(z) = z\int^L_0 \hat{q}(\Tilde{z}) ~d\Tilde{z} - \int^z_0(z-\Tilde{z})\hat{q}(\Tilde{z}) ~d\Tilde{z} - \int^L_0 \Tilde{z}\hat{q}(\Tilde{z}) ~d\Tilde{z}
+\end{equation*}
+
+\begin{equation*}
+    \frac{d^2u_y(z,t)}{dz^2} = \frac{\hat{M}_x(z)}{I_x} \int_{0^-}^t \phi(t-\tau) \frac{dE_c^{-1}}{d\tau} ~d\tau
+\end{equation*}
+
+\newpage
+
+
+\subsection*{4--2. \textbf{Ramp up the torque} [4 pts].}
+
+\bigskip
+
+\begin{equation*}
+    T_z(t) = P_0\alpha t
+\end{equation*}
+
+\begin{equation*}
+    T_z(s) = \frac{P_0\alpha}{s^2}
+\end{equation*}
+
+\begin{equation*}
+    \frac{d\phi(z,t)}{dz} = \frac{T_z(t)}{J_z \mu(t)}
+\end{equation*}
+
+\begin{equation*}
+    \frac{d\phi(z,s)}{dz} = \frac{T_z(s)}{J_z}s\mu_c^{-1}(s) = \frac{P_0 \alpha}{J_z}\frac{\mu_c^{-1}(s)}{s}
+\end{equation*}
+
+\begin{equation*}
+    \int_0^{\Phi(z,s)} d\phi(z,s) = \int_0^z \frac{P_0 \alpha}{J_z}\frac{\mu_c^{-1}(s)}{s} ~dz
+\end{equation*}
+
+\begin{equation*}
+    \Phi(z,s) = \frac{P_0 \alpha z}{J_z}\frac{\mu_c^{-1}(s)}{s}
+\end{equation*}
+
+\begin{equation*}
+    \Phi(z,t) = \frac{P_0 \alpha z}{J_z} \int_0^t \frac{1}{\mu(\tau)} ~d\tau
+\end{equation*}
 
 \end{document}
